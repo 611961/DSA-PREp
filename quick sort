@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+	int qsort(int a[],int start,int end){
+	int pivot=a[start];
+	int cnt=0;
+	for(int i=start+1;i<=end;i++){
+		if(pivot>=a[i])cnt++;
+	}
+	int pidx=start+cnt;
+	swap(a[pidx],a[start]);
+	int i=start,j=end;
+	while(i<pidx && j>pidx){
+		while(a[i]<pivot){
+			i++;
+		}
+		while(a[j]>pivot ){
+			j--;
+		}
+		if(i<pidx && j>pidx){
+			swap(a[i++],a[j--]);
+		}
+	}
+}
+
+	void qksort(int a[],int start,int end){
+	if(start>=end)return;
+	{
+		int p=qsort(a,start,end);
+		qksort(a,start,p-1);
+		qksort(a,p+1,end);
+	}
+	
+}
+
+int main(){
+	int n=7;
+	int a[7]={5,3,6,8,1,0,5};
+	qksort(a,0,n-1);
+	for(int i=0;i<n;i++){
+		cout<<a[i]<<" ";
+		
+	}
+}
