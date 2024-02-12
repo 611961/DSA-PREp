@@ -14,7 +14,6 @@ node* convert(vector<int>& a) {
     node* mover = head;
     for (int i = 1; i < a.size(); i++) {
         node* temp = new node(a[i]);
-        mover->next = temp;
         mover = temp;
     }
     return head; // Added return statement to return the head of the linked list
