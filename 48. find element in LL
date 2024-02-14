@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+struct Node{
+    int data;
+    Node *next;
+};
+int main()
+{
+    Node*head=nullptr;
+    Node*temp=nullptr;
+    for(int i=0;i<5;i++){
+        int a;
+        cin>>a;
+        Node * current=new Node;
+        current->data=a;
+        current->next=nullptr;
+        if(head==nullptr){
+            head=current;
+            temp=head;
+        }
+        else{
+            temp->next=current;
+            temp=temp->next;
+        }
+    }
+    temp=head;
+    int k =7;
+    bool chk=false;
+    while(temp!=nullptr){
+         chk  =false;
+        if((temp->data)==k){
+            chk=true;
+        }
+        
+        temp=temp->next;
+    }
+    if(chk){
+        cout<<"founded";
+    }
+    else{
+        cout<<"not";
+    }
+    temp =head;
+    while(temp!=nullptr){
+        Node* del =temp;
+        temp=temp->next;
+        delete del;
+    }
+}
