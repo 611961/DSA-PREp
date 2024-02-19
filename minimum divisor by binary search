@@ -1,0 +1,32 @@
+#include<iostream>
+#include<vector>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+
+int sumbyd(vector<int> &ar, int div) {
+    int sum = 0;
+    int n = ar.size();
+    for (int i = 0; i < n; i++) {
+        sum += ceil((double)(ar[i]) /(double)(div));  //ceil gives the next value in division if it is point
+    }
+    return sum;
+}
+
+int main() {
+    int n = 4;
+    vector<int> v = {1, 2, 5, 9};
+    int threshold = 6;
+
+    int lo = 1, hi = *max_element(v.begin(), v.end());
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (sumbyd(v, mid) <= threshold) {
+            hi = mid - 1;
+        } else {
+            lo = mid + 1;
+        }
+    }
+    cout << lo;  // Print the smallest divisor
+    return 0;
+}
