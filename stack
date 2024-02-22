@@ -1,0 +1,39 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+
+int main(){
+	
+	stack<int>s;
+	
+/*	s.push(2);          //adding the elements
+	s.push(3);
+	s.push(4);
+	
+	s.pop()   ;  // giving last elt
+	
+	cout<<"last element : "<<s.top()<<endl;        //giving last element
+	
+	
+	if(s.empty()){       //chechking empty function
+		cout<<"Stack me kuch nhi hai bhadve !\n";
+	}
+	else{
+		cout<<"kuch to hai !\n";
+	}
+	
+*/
+	              
+	              
+	    int a[5]={5,2,7,4,0};
+		int top=-1;
+		   for(int i=0;i<5;i++){
+		   	s.push(a[i]);
+		   } 
+		   
+		   while(s.size()>=0){
+		   	cout<<s.top()<<" ";
+		   	s.pop();
+		   }    
+	
+}
