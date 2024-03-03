@@ -1,0 +1,95 @@
+#include<iostream>
+using namespace std;
+
+int n = 5;      
+int arr[5];
+int front = 0;
+int rear = 0;
+
+void inputMenu() {
+    cout << "Choose 1 for inserting" << endl;
+    cout << "Choose 2 for deleting" << endl;
+    cout << "Choose 3 for checking if empty" << endl;
+    cout << "Choose 4 for checking front" << endl;
+    cout<<"Choose 5 for exit:\n";
+    cout<<endl;
+}
+
+void push() {
+    if (rear == n) {
+        cout << "Queue is full" << endl;
+    }
+    else {
+        cout << "Enter the element to add: ";
+        cin >> arr[rear];
+        rear++;
+    }
+}
+
+void pop() {
+    if (rear == front) {
+        cout << "Queue is empty" << endl;
+    }
+    else {
+        arr[front] = -1;
+        front++;
+        
+       //pichla space occupy krne ko
+        if (rear == front) {
+            rear = 0;
+            front = 0;
+        }
+    }
+}
+
+void isEmpty() {
+    if (rear == front) {
+        cout << "Queue is empty" << endl;
+    }
+    else {
+        cout << "Queue contains elements" << endl;
+    }
+}
+
+void checkFront() {
+    if (rear == front) {
+        cout << "Queue is empty" << endl;
+    }
+    else {
+        cout << "Front element: " << arr[front] << endl;
+    }
+}
+
+int main() {
+    bool exit = false;
+    int c;
+    
+    while (!exit) {
+        inputMenu();
+        cout << "Enter your choice: ";
+        cin >> c;
+
+        switch (c) {
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                isEmpty();
+                break;
+            case 4:
+                checkFront();
+                break;
+            case 5:
+                exit = true;
+                break;
+        
+            default:
+                cout << "Please enter a valid choice\n";
+        }
+    }
+
+    return 0;
+}
