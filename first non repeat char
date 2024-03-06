@@ -1,0 +1,30 @@
+#include<iostream>
+#include<queue>
+#include<map>
+using namespace std;
+
+int main(){
+    string s;
+    cin>>s;
+    string ss="";
+    map<char,int>m;
+    queue<char>q;
+    
+    for(int i=0;i<s.length();i++){
+        char c=s[i];
+        m[c]++;
+        q.push(c);
+    }
+    while(!q.empty()){
+        if(m[q.front()]==1) {
+            ss.push_back(q.front());
+            break;
+        }
+        q.pop();
+    }
+    if(q.empty()){
+        ss.push_back('#');
+    }
+    cout<<ss;
+    return 0;
+}
