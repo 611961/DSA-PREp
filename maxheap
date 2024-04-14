@@ -1,0 +1,42 @@
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+ class maxheap{
+ 	private :
+ 		 vector<int>heap;
+ 		 
+ 		 public:
+		   void add(int key){
+ 		 	heap.push_back(key);
+ 		 	position(heap.size()-1);
+		  }
+		  
+		  void position(int index){
+		  	int parent=(index-1)/2;
+		  	if(index > 0 && heap[parent]<heap[index]){
+		  		swap(heap[index],heap[parent]);
+		  		position(parent);
+			  }
+		  }
+		  
+		  void printheap(){
+		  	for(int i=0;i<heap.size();i++){
+		  		cout<<heap[i]<<" ";
+			  }
+		  }
+ 		 
+ };
+
+int main(){
+	maxheap obj;
+	
+	vector<int>toadd={50,30,4,10,58,20,30};
+	
+	for(int i=0;i<toadd.size();i++){
+		obj.add(toadd[i]);
+	}
+
+	obj.printheap();
+}
